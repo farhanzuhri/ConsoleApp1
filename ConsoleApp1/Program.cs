@@ -96,18 +96,21 @@ public class Program
                 GeneralMenu.List(resultJoin2, "regions and countries");
                 break;
             case "6":
+                
                 var Employee4 = new Employees();
                 var Department4 = new Departments();
                 var Location4 = new Locations();
                 var Country4 = new Countries();
                 var Region4 = new Region();
 
+                //menyimpan list dari return method getAll ke variabel tiap tabel
                 var getEmployee4 = Employee4.GetAll();
                 var getDepartment4 = Department4.GetAll();
                 var getLocation4 = Location4.GetAll();
                 var getCountry4 = Country4.GetAll();
                 var getRegion4 = Region4.GetAll();
 
+                //menyimpan list hasil join antar tabel ke variabel dataemployee
                 var employeeDetails = (from e in getEmployee4
                                     join d in getDepartment4 on e.DepartmentId equals d.Id
                                     join l in getLocation4 on d.LocationId equals l.Id
@@ -124,6 +127,7 @@ public class Program
                                         CountryName = c.Name,
                                         RegionName = r.Name
                                     }).ToList();
+                //menampilkan ke layar konsol menggunakan method list dari kelas generalmenu
                 GeneralMenu.List(employeeDetails, "Data Employee");
 
                 break;
