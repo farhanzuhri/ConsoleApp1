@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class GeneralMenu
+    public class GeneralView
     {
         public static void List<T>(List<T> items, string title)
         {

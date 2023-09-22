@@ -1,7 +1,9 @@
-﻿using System.Data;
+﻿using ConsoleApp1.Controllers;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Metrics;
 using System.Xml.Linq;
+using ConsoleApp1.Views;
 
 namespace ConsoleApp1;
 
@@ -96,7 +98,7 @@ public class Program
                 GeneralView.List(resultJoin2, "regions and countries");
                 break;
             case "6":
-                
+
                 var Employee4 = new Employees();
                 var Department4 = new Departments();
                 var Location4 = new Locations();
@@ -112,21 +114,21 @@ public class Program
 
                 //menyimpan list hasil join antar tabel ke variabel dataemployee
                 var employeeDetails = (from e in getEmployee4
-                                    join d in getDepartment4 on e.DepartmentId equals d.Id
-                                    join l in getLocation4 on d.LocationId equals l.Id
-                                    join c in getCountry4 on l.CountryId equals c.Id
-                                    join r in getRegion4 on c.RegionId equals r.Id
-                                    select new EmployeeDetailsVM
-                                    {
-                                        Id = e.Id,
-                                        FullName = e.FirstName + " " + e.LastName,
-                                        Email = e.Email,
-                                        Phone = e.PhoneNumber,
-                                        DepartmentName = d.Name,
-                                        StreetAddress = l.StreetAddress,
-                                        CountryName = c.Name,
-                                        RegionName = r.Name
-                                    }).ToList();
+                                       join d in getDepartment4 on e.DepartmentId equals d.Id
+                                       join l in getLocation4 on d.LocationId equals l.Id
+                                       join c in getCountry4 on l.CountryId equals c.Id
+                                       join r in getRegion4 on c.RegionId equals r.Id
+                                       select new EmployeeDetailsVM
+                                       {
+                                           Id = e.Id,
+                                           FullName = e.FirstName + " " + e.LastName,
+                                           Email = e.Email,
+                                           Phone = e.PhoneNumber,
+                                           DepartmentName = d.Name,
+                                           StreetAddress = l.StreetAddress,
+                                           CountryName = c.Name,
+                                           RegionName = r.Name
+                                       }).ToList();
                 //menampilkan ke layar konsol menggunakan method list dari kelas generalmenu
                 GeneralView.List(employeeDetails, "Data Employee");
 
@@ -160,7 +162,48 @@ public class Program
         }
 
         return true;
+
     }
-}
+
+        public static void RegionMenu()
+        {
+            var region = new Region();
+            var regionView = new RegionView();
+
+            var regionController = new RegionController(region, regionView);
+
+            var isLoop = true;
+            while (isLoop)
+            {
+                Console.WriteLine("1. List all regions");
+                Console.WriteLine("2. Insert new region");
+                Console.WriteLine("3. Update region");
+                Console.WriteLine("4. Delete region");
+                Console.WriteLine("10. Back");
+                Console.Write("Enter your choice: ");
+                var input2 = Console.ReadLine();
+                switch (input2)
+                {
+                    case "1":
+                        regionController.GetAll();
+                        break;
+                    case "2":
+                        regionController.Insert();
+                        break;
+                    case "3":
+                        regionController.Update();
+                        break;
+                    case "10":
+                        isLoop = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+            }
+        }
+    }
+
+
 
 
