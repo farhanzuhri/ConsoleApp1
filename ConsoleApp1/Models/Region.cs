@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Transactions; // Add using statement for System.Transactions
 using System.Xml.Linq;
 
-namespace ConsoleApp1 // Adjust the namespace name
+namespace ConsoleApp1.Models // Adjust the namespace name
 {
     public class Region
     {

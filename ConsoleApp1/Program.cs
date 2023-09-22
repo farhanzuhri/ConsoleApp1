@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Diagnostics.Metrics;
 using System.Xml.Linq;
 using ConsoleApp1.Views;
+using ConsoleApp1.Models;
 
 namespace ConsoleApp1;
 
