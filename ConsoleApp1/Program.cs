@@ -33,23 +33,23 @@ public class Program
             case "1":
                 var region = new Region();
                 var regions = region.GetAll();
-                GeneralMenu.List(regions, "regions");
+                GeneralView.List(regions, "regions");
                 break;
             case "2":
                 var country = new Countries();
                 var countries = country.GetAll();
-                GeneralMenu.List(countries, "countries");
+                GeneralView.List(countries, "countries");
                 break;
             case "3":
                 var location = new Locations();
                 var locations = location.GetAll();
-                GeneralMenu.List(locations, "locations");
+                GeneralView.List(locations, "locations");
                 break;
             case "4":
                 var region2 = new Region();
                 string input2 = Console.ReadLine();
                 var result = region2.GetAll().Where(r => r.Name.Contains(input2)).ToList();
-                GeneralMenu.List(result, "regions");
+                GeneralView.List(result, "regions");
                 break;
             case "5":
                 var country3 = new Countries();
@@ -93,7 +93,7 @@ public class Program
                     Console.WriteLine($"{item.Id} - {item.NameRegion} - {item.NameCountry} - {item.RegionId}");
                 }*/
 
-                GeneralMenu.List(resultJoin2, "regions and countries");
+                GeneralView.List(resultJoin2, "regions and countries");
                 break;
             case "6":
                 
@@ -128,7 +128,7 @@ public class Program
                                         RegionName = r.Name
                                     }).ToList();
                 //menampilkan ke layar konsol menggunakan method list dari kelas generalmenu
-                GeneralMenu.List(employeeDetails, "Data Employee");
+                GeneralView.List(employeeDetails, "Data Employee");
 
                 break;
             case "7":
@@ -150,7 +150,7 @@ public class Program
                                           MaxSalary = groupED.Max(e => e.Salary)
                                       }).ToList();
                 //menampilkan ke layar konsol menggunakan method list dari kelas generalmenu
-                GeneralMenu.List(departmentInfo, "Department Info");
+                GeneralView.List(departmentInfo, "Department Info");
                 break;
             case "10":
                 return false;
