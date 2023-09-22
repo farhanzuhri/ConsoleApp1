@@ -10,10 +10,10 @@ namespace ConsoleApp1.Controllers
 {
     public class LocationController
     {
-        private Location _location;
+        private Locations _location;
         private LocationView _locationView;
 
-        public LocationController(Location location, LocationView locationView)
+        public LocationController(Locations location, LocationView locationView)
         {
             _location = location;
             _locationView = locationView;
@@ -34,7 +34,7 @@ namespace ConsoleApp1.Controllers
 
         public void Insert()
         {
-            Location input = _locationView.InsertInput();
+            Locations input = _locationView.InsertInput();
             var result = _location.Insert(input);
 
             _locationView.Transaction(result);
@@ -42,7 +42,7 @@ namespace ConsoleApp1.Controllers
 
         public void Update()
         {
-            Location location = _locationView.UpdateInput();
+            Locations location = _locationView.UpdateInput();
 
             var result = _location.Update(location);
             _locationView.Transaction(result);

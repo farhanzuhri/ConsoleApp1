@@ -31,26 +31,26 @@ namespace ConsoleApp1.Controllers
             }
             else
             {
-                _countryView.List(results, "countries");
+                GeneralView.List(results, "countries");
             }
         }
 
         public void Insert()
         {
-            Country input = _countryView.InsertInput(); ;
+            Countries input = _countryView.InsertInput(); ;
 
 
             var result = _country.Insert(input);
 
-            _countryView.Transaction(result);
+            GeneralView.Transaction(result);
         }
 
         public void Update()
         {
-            Country country = _countryView.UpdateInput();
+            Countries country = _countryView.UpdateInput();
 
             var result = _country.Update(country);
-            _countryView.Transaction(result);
+            GeneralView.Transaction(result);
         }
 
         public void Delete()
@@ -58,7 +58,7 @@ namespace ConsoleApp1.Controllers
             string input = _countryView.DeleteInput();
             var result = _country.Delete(input);
 
-            _countryView.Transaction(result);
+            GeneralView.Transaction(result);
 
         }
     }

@@ -9,7 +9,7 @@ namespace ConsoleApp1.Views
 {
     public class LocationView : GeneralView
     {
-        public Location InsertInput()
+        public Locations InsertInput()
         {
             int locationId;
             while (true)
@@ -24,26 +24,29 @@ namespace ConsoleApp1.Views
                     Console.WriteLine("masukan hanya angka");
                 }
             }
-            Console.WriteLine("Insert Streed Addresse");
+            Console.WriteLine("Insert Streed Address");
             var streedAddress = Console.ReadLine();
             Console.WriteLine("Insert Postal Code");
             var postalCode = Console.ReadLine();
+            Console.WriteLine("Insert State Province");
+            var stateProvince = Console.ReadLine();
             Console.WriteLine("Insert City");
             var city = Console.ReadLine();
             Console.WriteLine("Insert Country Id");
             var countryId = Console.ReadLine();
 
-            return new Location
+            return new Locations
             {
                 Id = locationId,
                 StreetAddress = streedAddress,
                 PostalCode = postalCode,
+                StateProvince = stateProvince,
                 City = city,
                 CountryId = countryId
             };
         }
 
-        public Location UpdateInput()
+        public Locations UpdateInput()
         {
             int locationId;
             while (true)
@@ -58,20 +61,23 @@ namespace ConsoleApp1.Views
                     Console.WriteLine("masukan hanya angka");
                 }
             }
-            Console.WriteLine("Insert Streed Addresse");
+            Console.WriteLine("Insert Streed Address");
             var streedAddress = Console.ReadLine();
             Console.WriteLine("Insert Postal Code");
             var postalCode = Console.ReadLine();
+            Console.WriteLine("Insert State Province");
+            var stateProvince = Console.ReadLine();
             Console.WriteLine("Insert City");
             var city = Console.ReadLine();
             Console.WriteLine("Insert Country Id");
             var countryId = Console.ReadLine();
 
-            return new Location
+            return new Locations
             {
                 Id = locationId,
                 StreetAddress = streedAddress,
                 PostalCode = postalCode,
+                StateProvince = stateProvince,
                 City = city,
                 CountryId = countryId
             };
