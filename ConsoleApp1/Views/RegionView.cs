@@ -6,27 +6,45 @@ using System.Threading.Tasks;
 using ConsoleApp1.Models;
 
 namespace ConsoleApp1.Views;
-    public class RegionView : GeneralView
+public class RegionView : GeneralView
+{
+    public string InsertInput()
     {
-        public string InsertInput()
+        Console.WriteLine("Insert region name");
+        var name = Console.ReadLine();
+
+        return name;
+    }
+
+    public Region UpdateInput()
+    {
+        Console.WriteLine("Insert region id");
+        var id = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Insert region name");
+        var name = Console.ReadLine();
+
+        return new Region
         {
-            Console.WriteLine("Insert region name");
-            var name = Console.ReadLine();
+            Id = id,
+            Name = name
+        };
+    }
 
-            return name;
-        }
-
-        public Region UpdateRegion()
+    public int DeleteInput()
+    {
+        Console.WriteLine("Insert region Id");
+        int id;
+        while (true)
         {
-            Console.WriteLine("Insert region id");
-            var id = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Insert region name");
-            var name = Console.ReadLine();
-
-            return new Region
+            if (int.TryParse(Console.ReadLine(), out id))
             {
-                Id = id,
-                Name = name
+                return id;
+            }
+            else
+            {
+                Console.WriteLine("Masukan id hanya angka");
             };
         }
+
     }
+}
