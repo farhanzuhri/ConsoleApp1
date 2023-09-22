@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Transactions; 
+using System.Xml.Linq;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Models
 {
     public class Countries
     {
